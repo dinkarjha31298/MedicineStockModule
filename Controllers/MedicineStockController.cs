@@ -12,24 +12,23 @@ namespace MedicineStockModule.Controllers
     [ApiController]
     public class MedicineStockController : ControllerBase
     {
+        //readonly log4net.ILog _log4net;
         MedicineStockRepo db;
 
         public MedicineStockController(MedicineStockRepo _db)
         {
             db = _db;
-            //_log4net = log4net.LogManager.GetLogger(typeof(ProjectsController));
+           // _log4net = log4net.LogManager.GetLogger(typeof(MedicineStockController));
         }
 
 
-
-        // GET: api/Projects
         [HttpGet]
         public IActionResult Get()
         {
-            //log4net.Info("ProjectsController GET ALL Action Method called")
+            //log4net.Info("ProjectsController GET ALL Action Method called");
             try
             {
-                var obj = db.GetDetails();
+                var obj = db.MedicineStockInformation();
                 if (obj == null)
                     return NotFound();
                 return Ok(obj);

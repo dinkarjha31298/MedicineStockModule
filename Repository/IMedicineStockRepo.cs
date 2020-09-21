@@ -8,6 +8,6 @@ namespace MedicineStockModule.Repository
 {
     public interface IMedicineStockRepo
     {
-        public List<MedicineStock>GetDetails();
+        public List<MedicineStock> MedicineStockInformation();
     }
 }

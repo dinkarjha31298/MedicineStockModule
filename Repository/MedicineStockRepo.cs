@@ -17,7 +17,7 @@ namespace MedicineStockModule.Repository
             new MedicineStock{ Name= "Cytotec",ChemicalComposition="Misoprostol,Prostaglandin E1 Analog",TargetAilment="Gynaecology",DateOfExpiry=new DateTime(2022,10,10),NumberOfTabletsInStock=1800},
             new MedicineStock{ Name= "Volini 50mg",ChemicalComposition="Diclofenac",TargetAilment="Orthopaedics",DateOfExpiry=new DateTime(2025,07,13),NumberOfTabletsInStock=600}
         };
-    public List<MedicineStock> GetDetails()
+    public List<MedicineStock> MedicineStockInformation()
         {
             return Medicines;
         }
