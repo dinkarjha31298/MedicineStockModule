@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MedicineStockModule.Providers;
 using MedicineStockModule.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace MedicineStockModule.Controllers
 {
@@ -13,10 +15,10 @@ namespace MedicineStockModule.Controllers
     public class MedicineStockController : ControllerBase
     {
         readonly log4net.ILog _log4net;
-        MedicineStockRepo db;
+        MedicineStockProvider db;
        
 
-        public MedicineStockController(MedicineStockRepo _db)
+        public MedicineStockController(MedicineStockProvider _db)
         {
             db = _db;
             _log4net = log4net.LogManager.GetLogger(typeof(MedicineStockController));
@@ -26,17 +28,22 @@ namespace MedicineStockModule.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            _log4net.Info("ProjectsController GET ALL Action Method called");
+            _log4net.Info("MedicineStockController  Action Method called");
             try
             {
-                var obj = db.MedicineStockInformation();
+                var obj = db.MedicineStockInfo();
                 if (obj == null)
+                {
+                    _log4net.Error("Null Value is sending");
                     return NotFound();
+                }
+                _log4net.Info("MedicleStockInfo Method works");
                 return Ok(obj);
             }
             catch (Exception)
             {
-                return BadRequest();
+                _log4net.Error("Internal Error Occurs");
+                return StatusCode(500);
             }
         }
     }

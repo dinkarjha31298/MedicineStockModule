@@ -9,6 +9,7 @@ namespace MedicineStockModule.Repository
 {
     public class MedicineStockRepo:IMedicineStockRepo
     {
+        
         private static List<MedicineStock> Medicines = new List<MedicineStock>
         {
             new MedicineStock{ Name= "Aciloc",ChemicalComposition="Domperidone,Omeprazole",TargetAilment="General",DateOfExpiry=new DateTime(2022,05,25),NumberOfTabletsInStock=1000},
@@ -19,6 +20,7 @@ namespace MedicineStockModule.Repository
         };
     public List<MedicineStock> MedicineStockInformation()
         {
+           
             return Medicines;
         }
     }
