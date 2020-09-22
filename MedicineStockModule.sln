@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicineStockModule", "MedicineStockModule.csproj", "{820FB133-30ED-421D-B6CD-C7DEB3C4015C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicineStockModule", "MedicineStockModule.csproj", "{820FB133-30ED-421D-B6CD-C7DEB3C4015C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicineStockModuleTest", "..\MedicineStockModuleTest\MedicineStockModuleTest.csproj", "{83218A75-5521-4873-B4FA-A45D918A7229}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{820FB133-30ED-421D-B6CD-C7DEB3C4015C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{820FB133-30ED-421D-B6CD-C7DEB3C4015C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{820FB133-30ED-421D-B6CD-C7DEB3C4015C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83218A75-5521-4873-B4FA-A45D918A7229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83218A75-5521-4873-B4FA-A45D918A7229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83218A75-5521-4873-B4FA-A45D918A7229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83218A75-5521-4873-B4FA-A45D918A7229}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

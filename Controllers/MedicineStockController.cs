@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MedicineStockModule.Providers;
 using MedicineStockModule.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -12,6 +13,7 @@ namespace MedicineStockModule.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MedicineStockController : ControllerBase
     {
         readonly log4net.ILog _log4net;
