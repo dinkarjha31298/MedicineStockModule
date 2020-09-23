@@ -9,7 +9,7 @@ namespace MedicineStockModule.Models
 {
     public class MedicineStock
     {
-        //[JsonPropertyName("name")]
+        
         public string Name { get; set; }
         public string ChemicalComposition { get; set; }
         public string TargetAilment { get; set; }

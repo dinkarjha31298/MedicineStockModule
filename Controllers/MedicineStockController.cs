@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MedicineStockModule.Models;
 using MedicineStockModule.Providers;
 using MedicineStockModule.Repository;
 using Microsoft.AspNetCore.Authorization;
@@ -26,25 +27,31 @@ namespace MedicineStockModule.Controllers
             _log4net = log4net.LogManager.GetLogger(typeof(MedicineStockController));
         }
 
-
+        /// <summary>
+        /// Get method called by api
+        /// In the get method, MedicineStockInfo is calling and check about the MedicineList 
+        /// </summary>
+        /// <returns>return List of medicines to Api</returns>
         [HttpGet]
         public IActionResult Get()
         {
             _log4net.Info("MedicineStockController  Action Method called");
             try
             {
-                var obj = db.MedicineStockInfo();
-                if (obj == null)
+                _log4net.Info("MedicineStockProvider's MedicineStockInfo is calling for " + nameof(MedicineStockController));
+                List<MedicineStock> medicinelist = db.MedicineStockInfo();
+                if (medicinelist == null)
                 {
-                    _log4net.Error("Null Value is sending");
-                    return NotFound();
+                    _log4net.Error("Database is empty"+nameof(MedicineStockController));
+                    return NotFound("nothing is in Database");
                 }
-                _log4net.Info("MedicleStockInfo Method works");
-                return Ok(obj);
+                _log4net.Info("MedicineStockRepository's MedicineStockInformation works for " + nameof(MedicineStockProvider));
+                _log4net.Info("MedicineStockProvider's MedicineStockInfo works for " + nameof(MedicineStockController));
+                return Ok(medicinelist);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                _log4net.Error("Internal Error Occurs");
+                _log4net.Error(nameof(MedicineStockController)+"'s exception is"+e.Message);
                 return StatusCode(500);
             }
         }
