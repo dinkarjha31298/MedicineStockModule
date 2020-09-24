@@ -39,7 +39,7 @@ namespace MedicineStockModule
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicineStockModule API", Version = "v1" });
             });
-           /* services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+           services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(options =>
                {
                    options.TokenValidationParameters = new TokenValidationParameters
@@ -52,7 +52,7 @@ namespace MedicineStockModule
                        ValidAudience = Configuration["TokenInfo:Issuer"],
                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenInfo:SecretKey"]))
                    };
-               });*/
+               });
 
         }
 
@@ -67,7 +67,7 @@ namespace MedicineStockModule
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseAuthorization();
             app.UseSwagger();
