@@ -28,7 +28,7 @@ namespace MedicineStockModule.Repository
         /// MedicineStockInformation method called by MedicinestockProvider
         /// </summary>
         /// <returns>return List of Medicines to MedicineStockProvider</returns>
-    public List<MedicineStock> MedicineStockInformation()
+        public List<MedicineStock> MedicineStockInformation()
         {
             _log4net.Info("MedicineStockRepository's MedicineStockInformation Action Method called for "+nameof(MedicineStockProvider));
             return Medicines;

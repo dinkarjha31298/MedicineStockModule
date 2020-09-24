@@ -11,8 +11,8 @@ namespace MedicineStockModule.Providers
     public class MedicineStockProvider
     {
         readonly log4net.ILog _log4net;
-        MedicineStockRepo msr;
-        public MedicineStockProvider(MedicineStockRepo _msr)
+        IMedicineStockRepo msr;
+        public MedicineStockProvider(IMedicineStockRepo _msr)
         {
             msr = _msr;
             _log4net = log4net.LogManager.GetLogger(typeof(MedicineStockProvider));

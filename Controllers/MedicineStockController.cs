@@ -14,7 +14,7 @@ namespace MedicineStockModule.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class MedicineStockController : ControllerBase
     {
         readonly log4net.ILog _log4net;
