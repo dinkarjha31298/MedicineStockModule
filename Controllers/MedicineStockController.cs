@@ -29,7 +29,7 @@ namespace MedicineStockModule.Controllers
 
         /// <summary>
         /// Get method called by api
-        /// In the get method, MedicineStockInfo is calling and check about the MedicineList 
+        /// In the Get method,object of prvider is calling MedicineStockInfo method and check about the MedicineList 
         /// </summary>
         /// <returns>return List of medicines to Api</returns>
         [HttpGet]

@@ -19,6 +19,7 @@ namespace MedicineStockModule.Providers
         }
         /// <summary>
         /// MedicineStockInfo method called by MedicinestockController
+        /// And in the MedicineStockInfo, Object of ImedicineRepo is calling MedicineStockInformation method and get List<MedicineStock> 
         /// </summary>
         /// <returns>return List of medicines which was getting by MedicineStockRepo to MedicineStockController</returns>
         public List<MedicineStock> MedicineStockInfo()
