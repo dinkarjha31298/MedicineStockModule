@@ -11,10 +11,10 @@ namespace MedicineStockModule.Providers
     public class MedicineStockProvider
     {
         readonly log4net.ILog _log4net;
-        IMedicineStockRepo msr;
-        public MedicineStockProvider(IMedicineStockRepo _msr)
+        IMedicineStockRepo repoContext;
+        public MedicineStockProvider(IMedicineStockRepo _repoContext)
         {
-            msr = _msr;
+            repoContext = _repoContext;
             _log4net = log4net.LogManager.GetLogger(typeof(MedicineStockProvider));
         }
         /// <summary>
@@ -24,10 +24,18 @@ namespace MedicineStockModule.Providers
         /// <returns>return List of medicines which was getting by MedicineStockRepo to MedicineStockController</returns>
         public List<MedicineStock> MedicineStockInfo()
         {
-            List<MedicineStock> medicines = msr.MedicineStockInformation();
-            _log4net.Info("MedicineStockProvider's MedicineStockInfo Action Method called for " +nameof(MedicineStockController));
-            _log4net.Info("MedicineStockRepository's MedicineStockInformation Action Method is calling for " + nameof(MedicineStockProvider));
-            return medicines;
+            try
+            {
+                List<MedicineStock> medicines = repoContext.MedicineStockInformation();
+                _log4net.Info("MedicineStockProvider's MedicineStockInfo Action Method called for " + nameof(MedicineStockController));
+                _log4net.Info("MedicineStockRepository's MedicineStockInformation Action Method is calling for " + nameof(MedicineStockProvider));
+                return medicines;
+            }
+            catch(Exception e)
+            {
+                _log4net.Error(nameof(MedicineStockProvider) + "'s exception is" + e.Message);
+                throw e;
+            }
         }
     }
 }

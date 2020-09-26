@@ -9,7 +9,6 @@ namespace MedicineStockModule.Models
 {
     public class MedicineStock
     {
-        
         public string Name { get; set; }
         public string ChemicalComposition { get; set; }
         public string TargetAilment { get; set; }

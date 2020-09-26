@@ -30,8 +30,16 @@ namespace MedicineStockModule.Repository
         /// <returns>return List of Medicines to MedicineStockProvider</returns>
         public List<MedicineStock> MedicineStockInformation()
         {
-            _log4net.Info("MedicineStockRepository's MedicineStockInformation Action Method called for "+nameof(MedicineStockProvider));
-            return Medicines;
+            try
+            {
+                _log4net.Info("MedicineStockRepository's MedicineStockInformation Action Method called for " + nameof(MedicineStockProvider));
+                return Medicines;
+            }
+            catch(Exception e)
+            {
+                _log4net.Error(nameof(MedicineStockRepo) + "'s exception is" + e.Message);
+                throw e;
+            }
         }
     }
 }

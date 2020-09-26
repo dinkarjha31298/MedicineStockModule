@@ -18,12 +18,12 @@ namespace MedicineStockModule.Controllers
     public class MedicineStockController : ControllerBase
     {
         readonly log4net.ILog _log4net;
-        MedicineStockProvider db;
+        MedicineStockProvider providerContext;
        
 
-        public MedicineStockController(MedicineStockProvider _db)
+        public MedicineStockController(MedicineStockProvider _providerContext)
         {
-            db = _db;
+            providerContext = _providerContext;
             _log4net = log4net.LogManager.GetLogger(typeof(MedicineStockController));
         }
 
@@ -39,11 +39,11 @@ namespace MedicineStockModule.Controllers
             try
             {
                 _log4net.Info("MedicineStockProvider's MedicineStockInfo is calling for " + nameof(MedicineStockController));
-                List<MedicineStock> medicinelist = db.MedicineStockInfo();
+                List<MedicineStock> medicinelist = providerContext.MedicineStockInfo();
                 if (medicinelist == null)
                 {
                     _log4net.Error("Database is empty"+nameof(MedicineStockController));
-                    return NotFound("nothing is in Database");
+                    return NotFound("MedicineStock is empty");
                 }
                 _log4net.Info("MedicineStockRepository's MedicineStockInformation works for " + nameof(MedicineStockProvider));
                 _log4net.Info("MedicineStockProvider's MedicineStockInfo works for " + nameof(MedicineStockController));
